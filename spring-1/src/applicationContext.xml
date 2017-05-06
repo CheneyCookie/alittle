@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- 
+		配置bean
+		class:bean的全类名，通过反射的方式在IOC容器中创建bean,所以要求bean中有无参构造器
+		id:标识容器中的bean,id唯一。
+	 -->
+	<bean id="helloWorld" class="com.spring.bean.HelloWorld">
+		<property name="name2" value="Spring"></property>
+	</bean>
+
+</beans>

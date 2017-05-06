@@ -1,0 +1,19 @@
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping package="com.ssh.entities">
+	<class name="Employee" table="ssh_employee">
+		<id name="id" column="id">
+			<generator class="native"></generator>
+		</id>
+		<property name="lastName"/>
+		<property name="email"/>
+		<property name="birth"/>
+		<property name="createTime"/>
+		<!-- 映射单向多对一的关联关系 -->
+		<many-to-one name="department" class="com.ssh.entities.Department">
+			<column name="department_id"></column>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,12 @@
+/applicationContext.xml
+/beans-annotation.xml
+/beans-autowire.xml
+/beans-beanfactory.xml
+/beans-factory.xml
+/beans-generic-di.xml
+/beans-properties.xml
+/beans-relation.xml
+/beans-scope.xml
+/beans-spel.xml
+/com/
+/db.properties
