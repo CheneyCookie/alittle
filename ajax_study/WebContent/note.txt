@@ -1,0 +1,38 @@
+*工程名${pageContext.request.contextPath}
+*如从服务端返回json字符串，属性名必须使用双引号
+*var idHaveCart="${sessionScope.sc==null}";判断session中是否含有购物车
+
+
+1.什么是ajax? 不用刷新页面，但可以和服务器进行通信的方式。使用Ajax主要方式是XMLHttpRequest对象
+
+2.使用XMLHttpRequest对象实现Ajax [了解]
+
+3.Ajax传输数据的三种方式：
+	1.XML:笨重，解析困难，但XML是通用的数据交换格式
+	2.HTML:不需要解析，可以直接放到文档中，若仅更新一部分区域。但传输的数据不是很方便，切HTML代码需要拼装完成
+	3.JSON:小巧，有面向对象的特征，且有很多第三方的jar包可以把Java对象或集合转为JSON字符串
+	
+4.使用jQuery完成ajax操作
+	1.load方法：可以用于HTML文档的元素节点，把结果直接加为对应节点的子元素，通常而言，load方法加载后的数据是一个HTML片段
+		var $obj=...
+		var url=...
+		var args={key:value,...};
+		$obj.load(url,args);
+		
+	2.$.get,$.post,$.getJSON:更加灵活。除去使用load的情况，大部分时候都使用这3个方法
+	
+		基本使用：
+		//url:Ajax请求的目标URL
+		//args:传递的参数：JSON类型
+		//data:Ajax响应成功后的数据，可能是xml,html,json
+		$.get(url,args,function(data){
+		
+		})
+		
+		请求JSON数据
+		$.get(url,args,function(data){
+		
+		},"JSON")
+		
+		
+		

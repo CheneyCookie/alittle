@@ -1,0 +1,28 @@
+需求：实现 城市->部门->员工->员工的详细信息的Ajax显示
+
+1. 3张数据表
+locations:	location_id,city
+departments:	department_id,department_name,location_id
+employees:	employee_id,last_name,salary,email,department_id
+
+2.需新学习的jQuery的一个插件：blockUI
+
+3.准备工作：可以在页面上显示所有的城市信息。
+/employee.jsp-->重定向-->EmployeeServlet listLocations(获取全部的location信息，并把locations放到了request中)
+			-->转发-->/WEB-INF/pages/employees.jsp(使用jstl显示所有的城市的信息)
+			
+4.使用BlockUI:ajax请求发出时执行$.blockUI，ajax响应送达时结束$.unblockUI
+$(document).ajaxStart($.blockUI).ajaxStop($.unblockUI);
+可以对样式做出修改：需要把$.blockUI包含在一个function(){}中
+$(document).ajaxStart(function(){
+			$.blockUI({
+				message:$('#loading'),
+				css:{
+					top:($(window).height()-400)/2 + 'px',
+					left:($(window).width()-400)/2 + 'px',
+					width:'150px',
+					border:'none',
+				},
+				overlayCSS:{backgroundColor:'#fff'}
+			})
+		}).ajaxStop($.unblockUI);

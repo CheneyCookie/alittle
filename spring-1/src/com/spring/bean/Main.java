@@ -15,6 +15,17 @@ public class Main {
 		ApplicationContext ctx=
 				new ClassPathXmlApplicationContext("applicationContext.xml");
 		HelloWorld helloWorld=(HelloWorld) ctx.getBean("helloWorld");
-		helloWorld.hello();
+		//利用类型返回IOC容器的bean,但要求IOC容器中只能有一个该类型的bean
+//		HelloWorld helloWorld=ctx.getBean(HelloWorld.class);
+		System.out.println(helloWorld);
+//		helloWorld.hello();
+		
+		Car car=(Car) ctx.getBean("car");
+		System.out.println(car);
+		car=(Car) ctx.getBean("car2");
+		System.out.println(car);
+		
+		Person person=(Person) ctx.getBean("person");
+		System.out.println(person);
 	}
 }

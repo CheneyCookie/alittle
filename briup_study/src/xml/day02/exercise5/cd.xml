@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE cds SYSTEM "cd.dtd">
+
+<cds>
+	<cd code="1001">
+		<TITLE>Empire Burlesque</TITLE>
+		<ARTIST>Bob Dylan</ARTIST>
+		<COUNTRY>USA</COUNTRY>
+		<COMPANY>Columbia</COMPANY>
+		<PRTCE>10.90</PRTCE>
+		<YEAR>1985</YEAR>
+	</cd>
+	<cd code="1002">
+		<TITLE>Hide your heart</TITLE>
+		<ARTIST>Bonnie Tyler</ARTIST>
+		<COUNTRY>UK</COUNTRY>
+		<COMPANY>CBS Records</COMPANY>
+		<PRTCE>9.90</PRTCE>
+		<YEAR>1988</YEAR>
+	</cd>
+	
+</cds>

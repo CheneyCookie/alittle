@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 导入jQuery库 -->
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript">
+	//$(function(){}) 相当于window.onload,代码写在{}之间
+	$(function(){
+		//1.使用id选择器选择id=btn1的元素：$("#btn1")
+		//2.为选中的jQuery对象添加onclick响应函数：
+		//$("#btn1").click(function(){}),响应函数的代码
+		//写在function的(){}的大括号中
+		$("#btn1").click(function(){
+			//alert("btn1 click");
+			$("#one").css("background","#ffbbaa");
+		})
+		
+	})
+	
+</script>
+</head>
+<body>
+	<input type="button" value="选择id为one的元素" id="btn1">
+	<input type="button" value="选择class为mini的所有元素" id="btn2">
+	<input type="button" value="选择元素名是div的所有元素" id="btn3">
+	<input type="button" value="选择所有的元素" id="btn4">
+	<input type="button" value="选择所有的span元素和id为two的元素" id="btn1">
+	
+	<br><br>
+	<div class="one" id="one">
+		id为one,class为one的div
+		<div class="mini">class为mini</div>
+	</div>
+	<div class="one" id="two" title="test"></div>
+	
+</body>
+</html>

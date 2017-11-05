@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	
+	window.onload = function() {
+		var btn=document.getElementById("addEmpButton");
+		btn.onclick=function(){
+			var name=document.getElementById("name");
+			var email=document.getElementById("email");
+			var salary=document.getElementById("salary");
+			
+			var nameVal=name.value;
+			var emailVal=email.value;
+			var salaryVal=salary.value;
+			
+			//去除nameVal的前后空格
+			var reg=/^\s*|\s*$/g;
+			nameVal=nameVal.replace(reg,"");
+			emailVal=emailVal.replace(reg,"");
+			salaryVal=salaryVal.replace(reg,"");
+			
+			
+			if(nameVal==""||emailVal==""||salaryVal==""){
+				alert("请填写所有项");
+				return false;
+			}
+			
+			var trNode=document.createElement("tr");
+			
+			var nameTd=document.createElement("td");
+			var emailTd=document.createElement("td");
+			var salaryTd=document.createElement("td");
+			var deleteTd=document.createElement("td");
+			
+			var nameContent=document.createTextNode(nameVal);
+			var emailContent=document.createTextNode(emailVal);
+			var salaryContent=document.createTextNode(salaryVal);
+			var deleteContent=document.createTextNode("删除");
+			
+			deleteTd.onclick=function(){
+				var flag=confirm("确定要删除"+this.firstChild.nodeValue+"的信息吗?");
+				if(flag){
+					var delTr=this.parentNode;
+					delTr.parentNode.removeChild(delTr);
+				}
+
+			}
+			
+			nameTd.appendChild(nameContent);
+			emailTd.appendChild(emailContent);
+			salaryTd.appendChild(salaryContent);
+			deleteTd.appendChild(deleteContent);
+			
+			trNode.appendChild(nameTd);
+			trNode.appendChild(emailTd);
+			trNode.appendChild(salaryTd);
+			trNode.appendChild(deleteTd);
+			
+			var tbody=document.getElementById("tableBody");
+			
+			tbody.appendChild(trNode);
+			
+			name.value="";
+			email.value="";
+			salary.value="";
+		}
+		
+		var thNodes=document.getElementsByTagName("td");
+		
+		for(var i=0;i<thNodes.length;i++){
+			thNodes[i].index=i;
+			if((i-3)%4==0){
+				thNodes[i].onclick=function(){
+					//alert(this.index);
+					//this.parentNode.removeChild(this);
+					//alert(delTr)
+					var flag=confirm("确定要删除"+this.firstChild.nodeValue+"的信息吗?");
+					if(flag){
+						var delTr=this.parentNode;
+						delTr.parentNode.removeChild(delTr);
+					}
+				}
+			}
+		}
+	}
+</script>
+</head>
+<body>
+	<div>
+		<div align="center">
+			<p>添加员工</p>
+			name:<input id="name" type="text"><br>
+			email:<input id="email" type="text"><br>
+			salary:<input id="salary" type="text"><br>
+			<input id="addEmpButton" type="submit" value="添加">
+		</div>
+		<br><br>
+		<hr>
+		
+		<div align="center">
+			<table id="employeetable" border="1" cellpadding="5" cellspacing="0">
+				<tbody id="tableBody">
+					<tr>
+						<th>Name</th>
+						<th>Email</th>
+						<th>Salary</th>
+						<th></th>
+					</tr>
+					<tr>
+						<td>cheney</td>
+						<td>1124932314@qq.com</td>
+						<td>6000</td>
+						<td>删除</td>
+					</tr>
+				</tbody>
+			</table>
+		
+		</div>
+	</div>
+</body>
+</html>

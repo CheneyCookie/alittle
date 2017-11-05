@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 导入jQuery库 -->
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript">
+	//$(function(){}) 相当于window.onload,代码写在{}之间
+	$(function(){
+		//1.选取button
+		//2.为button添加onclick响应函数
+		$("button").click(function(){
+			//3.弹出helloworld
+			alert("helloworld");
+			alert($(this).text());
+			
+			
+			//由jQuery对象转为DOM对象
+			//jQuery对象和DOM对象
+			var $btn=$("button");
+			
+			//jQuery对象是一个数组
+			alert($btn.length)
+			
+			//可以通过数组的下标转为DOM对象
+			alert($btn[0].firstChild.nodeValue);
+			
+			
+			
+			//由DOM对象转为jQuery对象
+			//选取一个DOM对象
+			var btn=document.getElementById("btn");
+			
+			//把DOM对象转为一个jQuery对象：使用$()进行包装
+			alert($(btn).text())
+		})
+		
+		
+		
+	})
+	
+</script>
+</head>
+<body>
+	<button id="btn">ClickMe</button>
+	<button>ClickMe2</button>
+</body>
+</html>

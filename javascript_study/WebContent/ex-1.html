@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	//获取文本节点
+	window.onload=function(){
+		
+		//点击每个li节点，都弹出其文本
+		
+		//1.获取所有li节点
+		var liNodes=document.getElementsByTagName("li");
+		
+		//2.使用for循环进行遍历,得到每一个节点
+		for(var i=0;i<liNodes.length;i++){
+			//3.为每一个li节点添加onclick响应函数
+			liNodes[i].onclick=function(){
+				//4.在响应函数中获取当前节点的文本节点的文本值
+				//5.alert打印
+				//this为正在响应事件的那个节点
+				alert(this.firstChild.nodeValue);
+				//alert(i);
+			}
+			
+			//liNodes[i].onclick=hello; hello不能带括号，带括号表示执行
+		}
+		
+		//function hello(){
+			//alert("hello")
+		//}
+		
+		
+		
+		
+	}
+	
+</script>
+</head>
+<body>
+
+	<p>你喜欢哪个城市</p>
+	<ul id="city"><li id="bj" name="BeiJing">北京</li>
+		<li>上海</li>
+		<li>东京</li>
+		<li>首尔</li>
+	</ul>
+	
+	<br><br>
+	<p>你喜欢哪款单机游戏</p>
+	<ul id="game">
+		<li id="rl">红警</li>
+		<li>实况</li>
+		<li>极品飞车</li>
+		<li>魔兽</li>
+	</ul>
+	
+	<br><br>
+	name:<input type="text" name="username" id="name" value="cheney">
+</body>
+</html>

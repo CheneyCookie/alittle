@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 导入jQuery库 -->
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript">
+
+		//测试使用jQuery创建节点并插入节点到指定节点中
+		/*
+			1.创建节点:使用$(html)方式即可，元素节点，文本节点，属性节点可以一网打尽
+			返回对应节点的jQuery对象：
+			$("<li id='cheney'>chen</li>")
+			
+			2.添加节点：
+			//$("<li id='cheney'>chen</li>").appendTo($("#city"));
+			//$("#city").append("<li id='cheney'>chen</li>");
+			//$("<li id='cheney'>chen</li>").prependTo($("#city"));
+			//$("#city").prepend("<li id='cheney'>chen</li>");
+		*/
+		
+	$(function(){
+		//1.创建一个<p id="cheney">chen</p>
+		//2.并把其加入到#city的子节点
+		
+		//$("<li id='cheney'>chen</li>").appendTo($("#city"));
+		//$("#city").append("<li id='cheney'>chen</li>");
+		//$("<li id='cheney'>chen</li>").prependTo($("#city"));
+		$("#city").prepend("<li id='cheney'>chen</li>");
+		alert($("#cheney").text());
+	})
+</script>
+</head>
+<body>
+
+	<p>你喜欢哪个城市</p>
+	<ul id="city">
+		<li id="bj" name="BeiJing">北京</li>
+		<li>上海</li>
+		<li>东京</li>
+		<li>首尔</li>
+	</ul>
+	
+	<br><br>
+	<p>你喜欢哪款单机游戏</p>
+	<ul id="game">
+		<li id="rl">红警</li>
+		<li>实况</li>
+		<li>极品飞车</li>
+		<li>魔兽</li>
+	</ul>
+	
+	<br><br>
+	gender:
+		<input type="radio" name="gender" value="male">Male
+		<input type="radio" name="gender" value="female">Female
+		
+		<br><br>
+	name:<input type="text" name="username" id="name" value="cheney">
+</body>
+</html>

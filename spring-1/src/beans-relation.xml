@@ -14,4 +14,14 @@
 	-->
 	<!-- bean配置的继承：使用bean的parent属性指定继承哪个bean的配置 -->
 	<bean id="address2" p:street="DaZhongsi" parent="address"></bean>
+	
+	<bean id="address3" class="com.spring.bean.autowire.Address"
+	parent="address2" p:street="AAA"></bean>
+	
+	<bean id="car" class="com.spring.bean.autowire.Car"
+	p:brand="Audi" p:price="300000"></bean>
+	
+	<!-- 要求在配置person时，必须有一个关联的car 换句话说，person这个bean依赖于Car这个bean -->
+	<bean id="person" class="com.spring.bean.autowire.Person"
+	p:name="Tom" p:address-ref="address2" depends-on="car"></bean>
 </beans>

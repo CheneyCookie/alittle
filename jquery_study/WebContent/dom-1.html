@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 导入jQuery库 -->
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript">
+
+		//测试使用jQuery操作文本节点
+		//及查找元素节点
+		
+	$(function(){
+		//1.操作文本节点:通过jQuery对象的text()方法
+		alert($("#bj").text());
+		$("#bj").text("cheney");
+		
+		//2.操作属性节点:通过jQuery对象的attr()方法。
+		//注：直接操作value属性值可以使用更便捷的val()方法
+		alert($(":text[name='username']").attr("value"));
+		$(":text[name='username']").attr("value","chen")
+	})
+</script>
+</head>
+<body>
+
+	<p>你喜欢哪个城市</p>
+	<ul id="city">
+		<li id="bj" name="BeiJing">北京</li>
+		<li>上海</li>
+		<li>东京</li>
+		<li>首尔</li>
+	</ul>
+	
+	<br><br>
+	<p>你喜欢哪款单机游戏</p>
+	<ul id="game">
+		<li id="rl">红警</li>
+		<li>实况</li>
+		<li>极品飞车</li>
+		<li>魔兽</li>
+	</ul>
+	
+	<br><br>
+	gender:
+		<input type="radio" name="gender" value="male">Male
+		<input type="radio" name="gender" value="female">Female
+		
+		<br><br>
+	name:<input type="text" name="username" id="name" value="cheney">
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 导入jQuery库 -->
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript">
+
+	//演示动画效果
+	$(function(){
+		
+		/*
+		$(".head").click(function(){
+			//使用is()方法，来判断某个jQuery对象是否符合指定的选择器
+			var flag=$(".content").is(":hidden");
+			if(flag){
+				//show()方法：使隐藏的变为显示
+				$(".content").show(1000);
+			}else{
+				$(".content").hide(1000);
+			}
+		})
+		*/
+		
+		//只改变高度
+		/*
+		$(".head").click(function(){
+			//使用is()方法，来判断某个jQuery对象是否符合指定的选择器
+			var flag=$(".content").is(":hidden");
+			if(flag){
+				$(".content").slideDown(1000);
+			}else{
+				$(".content").slideUp(1000);
+			}
+		})
+		*/
+		
+		//只改变透明度
+		/*
+		$(".head").click(function(){
+			//使用is()方法，来判断某个jQuery对象是否符合指定的选择器
+			var flag=$(".content").is(":hidden");
+			if(flag){
+				//show()方法：使隐藏的变为显示
+				$(".content").fadeIn(1000);
+			}else{
+				$(".content").fadeOut(1000);
+			}
+		})
+		*/
+		
+		//toggle()可以切换元素的可见性
+		//slideToggle():通过高度来切换匹配元素的可见性
+		//fadeToggle():通过透明度来切换元素的可见性
+		//fadeTo():把不透明度以渐近的方式调整到指定的值0~1之间
+		var i=1;
+		$(".head").click(function(){
+			//$(".content").toggle();
+			//$(".content").slideToggle();
+			//$(".content").fadeToggle();
+			$(".content").fadeTo("slow",i);
+			i=i-0.1;
+		})
+
+	})
+	
+</script>
+</head>
+<body>
+	<div id="panel">
+		<h5 class="head">什么事jQuery?</h5>
+		<div class="content">
+			jQuery是继Prototype之后又一个优秀的javascript库		
+		</div>
+	</div>
+</body>
+</html>

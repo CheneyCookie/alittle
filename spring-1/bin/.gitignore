@@ -2,6 +2,7 @@
 /beans-annotation.xml
 /beans-autowire.xml
 /beans-beanfactory.xml
+/beans-cycle.xml
 /beans-factory.xml
 /beans-generic-di.xml
 /beans-properties.xml

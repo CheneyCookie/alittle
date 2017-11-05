@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 导入jQuery库 -->
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript">
+
+	//为，head添加onclick响应函数：若.content隐藏则显示，若.content显示则隐藏
+	$(function(){
+		/*
+		$(".head").click(function(){
+			//使用is()方法，来判断某个jQuery对象是否符合指定的选择器
+			var flag=$(".content").is(":hidden");
+			if(flag){
+				//show()方法：使隐藏的变为显示
+				$(".content").show();
+			}else{
+				$(".content").hide();
+			}
+		})
+		*/
+		
+		//bind:为某jQuery对象绑定事件
+		/*
+		$(".head").bind("click",function(){
+			//使用is()方法，来判断某个jQuery对象是否符合指定的选择器
+			var flag=$(".content").is(":hidden");
+			if(flag){
+				//show()方法：使隐藏的变为显示
+				$(".content").show();
+			}else{
+				$(".content").hide();
+			}
+		});
+		*/
+		
+		//mouseover:鼠标移上去
+		//mouseout:鼠标移出
+		/*
+		$(".head").mouseover(function(){
+			$(".content").show();
+		}).mouseout(function(){
+			$(".content").hide();
+		});
+		*/
+		
+		//合成事件:hover:鼠标移上去执行第一个函数，移出执行第二个函数
+		/*
+		$(".head").hover(function(){
+			$(".content").show();
+		},function(){
+			$(".content").hide();
+		})
+		*/
+		
+		//toggle连续点击事件在后面已被取消，故在此没用
+		/*
+		$(".head").toggle(function(){
+			$(".content").show();
+		},function(){
+			$(".content").hide();
+		})
+		*/
+	})
+	
+</script>
+</head>
+<body>
+	<div id="panel">
+		<h5 class="head">什么事jQuery?</h5>
+		<div class="content">
+			jQuery是继Prototype之后又一个优秀的javascript库		
+		</div>
+	</div>
+</body>
+</html>

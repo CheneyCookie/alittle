@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.day03.classcode.ResultMapper">
+	
+	<resultMap type="Student" id="StudentResult">
+		<id property="id" column="id"/>
+		<id property="name" column="name"/>
+		<id property="email" column="email"/>
+		<id property="dob" column="dob"/>
+		<id property="phone" column="phone"/>
+	</resultMap>
+	
+	<resultMap type="Map" id="StudentMap">
+		<id property="id" column="id"/>
+		<id property="name" column="name"/>
+		<id property="email" column="email"/>
+		<id property="dob" column="dob"/>
+		<id property="phone" column="phone"/>
+	</resultMap>
+	
+	<select id="findAllStudent" resultMap="StudentResult">
+		select * from c_student
+	</select>
+	
+	<select id="findStudent_Set" resultType="Student">
+		select id,name,email,dob,phone
+		from c_student
+	</select>
+	
+	<select id="findStudentById_Map" parameterType="int" resultType="Map">
+		select id,name,email,dob,phone
+		from c_student
+		where id=#{id}
+	</select>
+	
+	<select id="findStudent_ListMap" resultMap="StudentMap">
+		select id,name,email,dob,phone
+		from c_student
+	</select>
+</mapper>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.day03.homework.improve2.UserMapper">
+	<resultMap type="User" id="UserResult">
+		<id property="id" column="userid"/>
+		<result property="name" column="username"/>
+		<result property="group.id" column="g_id"/>
+	</resultMap>
+	<parameterMap type="User" id="UserParameter">
+		<parameter property="id"/>
+		<parameter property="name"/>
+		<parameter property="group.id"/>
+	</parameterMap>
+	
+	<insert id="addUser" parameterMap="UserParameter">
+		insert into t_user(id,name,g_id)
+		values(#{id},#{name},#{group.id})
+	</insert>
+	
+	<select id="selectUser" resultMap="UserResult" parameterType="int">
+		select id,name,g_id from t_user
+		where id=#{id}
+	</select>
+	
+	
+</mapper>

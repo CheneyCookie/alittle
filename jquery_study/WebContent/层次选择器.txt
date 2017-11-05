@@ -1,0 +1,9 @@
+$("body div")		body内的所有div
+$("body > div")		body内子元素的div,不包含孙子元素
+$("#one + div")		选择id为one的下一个div
+$("#two ~ div")		选择id为two的元素后面所有兄弟div
+$("#two").siblings("div")  id为two的所有兄弟div
+
+$("#one" + span)  该选择器选择的是紧邻#one的span元素，若该span和div不相邻，选择器无效
+$("#one").nextAll("span:first")  id为one的下一个span
+$("#two").prevAll()  id为two前边所有div

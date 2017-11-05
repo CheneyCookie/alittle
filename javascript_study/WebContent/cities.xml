@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="GB2312"?>
+<china>
+	
+	<province name="江西省">
+		<city>南昌市</city>
+		<city>赣州市</city>
+		<city>上饶市</city>
+		<city>宜春市</city>
+	</province>
+	
+	<province name="广东省">
+		<city>深圳市</city>
+		<city>广州市</city>
+		<city>惠州市</city>
+		<city>东莞市</city>
+	</province>
+	
+	<province name="福建省">
+		<city>厦门市</city>
+		<city>福州市</city>
+		<city>。。市</city>
+		<city>。。。市</city>
+	</province>
+</china>

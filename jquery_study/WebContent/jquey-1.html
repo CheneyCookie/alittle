@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 导入jQuery库 -->
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript">
+	
+	//需求：若#checkedAll_2被选中，则name=items的checkedbox都被选中
+	//若#checkedAll_2取消选中，则name=items的checkedbox都取消选中
+	//若name=items的checkedbox都被选中，则#checkedAll_2也被选中
+	//若name=items的checkedbox有一个没被选中，则#checkedAll_2取消选中
+	
+	//事件需要加给#checkedAll_2，获取name=items的checkbox数组
+	//根据是否存在checked属性来判断是否被选择，可以使其checked=true被选择,checked=false取消选择
+	
+	//还需要给每个name=items的checkbox加响应函数
+	//判断name=items的checkbox是否都被选中：选择的个数和总个数是否相等
+	$(function(){
+		$("#checkedAll_2").click(function(){
+			var flag=this.checked;
+			$(":checkbox[name='items']").attr("checked",flag);
+		});
+		
+		$(":checkbox[name='items']").click(function(){
+			$("#checkedAll_2").attr("checked",$(":checkbox[name='items']").length==$(":checkbox[name='items']:checked").length);
+		})
+	})
+	
+	
+</script>
+</head>
+<body>
+
+	<form action="" method="post">
+		你爱好的运动是？<input type="checkbox" id=checkedAll_2>全选/全不选<br>
+		<input type="checkbox" name="items" value="足球">足球
+		<input type="checkbox" name="items" value="篮球">篮球
+		<input type="checkbox" name="items" value="羽毛球">羽毛球<br>
+		<input type="button" id="CheckedAll" value="全选">
+		<input type="button" id="CheckedNo" value="全不选">
+		<input type="button" id="CheckedRev" value="反选">
+		<input type="button" id="send" value="提交">
+	</form>
+</body>
+</html>

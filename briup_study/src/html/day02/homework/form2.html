@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>表单基础实例</title>
+<style type="text/css">
+	span{
+		color: #FFD500;
+	}
+</style>
+</head>
+<body>
+	<div align="center">
+	<p style="background-color: #ADD9E6">用户注册</p>
+		<form action="">
+			<table>
+				<tr>
+					<td align="right">*用户名：</td>
+					<td align="left">
+						<input type="text" name="username">
+						<span>&nbsp;由字母、数字、“-”组成，以字母开头，长度不小于6位，不多于30位</span>
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td align="right">*密码：</td>
+					<td align="left">
+						<input type="password" name="password"/>
+						<span>&nbsp;密码长度不少于6位</span>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">*重复密码：</td>
+					<td align="left">
+						<input type="password" name="repassword"/>
+						<span>&nbsp;请再次输入密码</span>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">性别：</td>
+					<td align="left">
+						<input type="radio" name="sex" value="male"/>男
+						<input type="radio" name="sex" value="female"/>女
+					</td>
+				</tr>
+				<tr>
+					<td align="right">学习课程：</td>
+					<td align="left">
+						<input type="checkbox" name="course" value="Linux"/>Linux
+						<input type="checkbox" name="course" value="Mysql"/>Mysql
+						<input type="checkbox" name="course" value="PHP"/>PHP
+						<input type="checkbox" name="course" value="HTML"/>HTML
+						<input type="checkbox" name="course" value="Javascript"/>Javascript
+					</td>
+				</tr>
+				<tr>
+					<td align="right">地址：</td>
+					<td align="left">
+						<select>
+							<option>昆山</option>
+							<option>上海</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">邮箱：</td>
+					<td align="left">
+						<input type="email" name="email"/>
+						<span>&nbsp;请填写正确的常用邮箱地址，以便接收通知，找回密码等</span>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">移动电话：</td>
+					<td align="left">
+						<input type="text" name="phone"/>
+						<span>&nbsp;11位数字</span>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">交友宣言：</td>
+					<td align="left">
+						<textarea rows="10" cols="30"></textarea>
+						<span>&nbsp;字符个数不能少于10位</span>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center">
+						<input type="submit" value="提交"/>
+						<input type="reset" value="重置"/>
+					</td>
+				</tr>			
+			</table>
+		</form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 导入jQuery库 -->
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript">
+
+	$(function(){
+		//事件的冒泡：什么是事件冒泡
+		$("body").click(function(){
+			alert("body click")
+		})
+		
+		$("div").click(function(){
+			alert("div click")
+		})
+		
+		//怎么解决事件冒泡
+		$("span").click(function(){
+			alert("span click")
+			//通过在响应函数结尾返回false，可以阻止冒泡
+			return false;
+		})
+	})
+	
+</script>
+</head>
+<body>
+外层body
+	<div id="content">
+		外层div
+		<span>span元素</span>
+	</div>
+</body>
+</html>

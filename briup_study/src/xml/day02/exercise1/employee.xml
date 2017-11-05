@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE employees SYSTEM "employee.dtd">
+<employees>
+	<employee id="A1" name="c" age="18" depName="教学部" salary="100" gender="female">
+		<name></name>
+		<age></age>
+		<depName></depName>
+		<salary></salary>
+		<gender></gender>
+	</employee>
+</employees>

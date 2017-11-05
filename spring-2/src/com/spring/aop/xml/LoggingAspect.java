@@ -18,15 +18,15 @@ public class LoggingAspect {
 		System.out.println("The method "+methodName+" ends");
 	}
 	
-	public void afterReturnung(JoinPoint joinPoint,Object result){
+	public void afterReturning(JoinPoint joinPoint,Object result){
 		String methodName=joinPoint.getSignature().getName();
 		System.out.println("The method "+methodName+" ends with "+result);
 	}
 	
 	
-	public void afterThrowing(JoinPoint joinPoint,Exception ex){
+	public void afterThrowing(JoinPoint joinPoint,Exception e){
 		String methodName=joinPoint.getSignature().getName();
-		System.out.println("The method "+methodName+" occurs with "+ex);
+		System.out.println("The method "+methodName+" occurs with "+e);
 	}
 	
 	public Object aroundMethod(ProceedingJoinPoint pjd){

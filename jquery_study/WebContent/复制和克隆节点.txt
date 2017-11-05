@@ -1,0 +1,13 @@
+clone():克隆匹配的DOM元素，返回值为克隆后的副本，但此时复制的新节点不具有任何行为
+clone(true):复制元素的同时也复制元素中的事件
+$("").clone
+clone节点时需要注意克隆后的节点的id属性，若原节点有id属性，则克隆后，会出现在一个文档中有两个id相同的节点的情况
+
+
+$("<li>chen</li>").replaceAll($("#city li:last"));
+替换第二个
+$("#city li:eq(1)").replaceWith($("<li>chen</li>"));
+
+互换两个节点:#rl和#bj还有移动的功能
+$("#bj").replaceWith($("#rl"));
+节点互换需先克隆节点

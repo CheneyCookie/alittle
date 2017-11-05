@@ -1,0 +1,11 @@
+选择器					描述							返回
+
+:nth-child(index		选取每个父元素下的第index个子元素		集合元素
+/even/odd/equation)		或者奇偶元素(index从1算起)
+:first-child			选取每个父元素的第一个子元素			集合元素
+:last-child				选取每个父元素的最后一个子元素		集合元素
+:only-child				如果某个元素是它父元素中唯一的子元素，	集合元素
+						那么将被匹配
+				
+选取子元素需要在选择器前添加一个空格		
+$(".one :nth-child(2)")选择class为one的第二个子元素

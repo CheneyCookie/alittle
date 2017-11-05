@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.day03.homework.work2.OneToManyMapper">
+	<resultMap type="Group" id="GroupResult">
+		<id property="id" column="id"/>
+		<result property="name" column="name"/>
+		<collection property="users" resultMap="UserResult"></collection>
+	</resultMap>
+	<resultMap type="User" id="UserResult">
+		<id property="id" column="userid"/>
+		<result property="name" column="username"/>
+		<result property="group.id" column="g_id"/>
+	</resultMap>
+	<parameterMap type="User" id="UserParameter">
+		<parameter property="id"/>
+		<parameter property="name"/>
+		<parameter property="group.id"/>
+	</parameterMap>
+	
+	<insert id="addGroup" parameterType="Group">
+		insert into t_group(id,name)
+		values(#{id},#{name})
+	</insert>
+	
+	<insert id="addUser" parameterMap="UserParameter">
+		insert into t_user(id,name,g_id)
+		values(#{id},#{name},#{group.id})
+	</insert>
+	
+	<select id="selectUser" resultMap="UserResult" parameterType="int">
+		select id,name,g_id from t_user
+		where id=#{id}
+	</select>
+	
+	<select id="selectGroup" resultMap="GroupResult" parameterType="int">
+		select u.id userid,u.name username,u.g_id,g.id,g.name
+		from t_user u,t_group g
+		where u.g_id=g.id
+		and
+		g.id=#{id}
+	</select>
+	
+</mapper>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE students SYSTEM "../dtd/student2.dtd"[
+]>
+
+<students>
+	<stu><!-- <test></test>asd -->
+	<!-- <name></name>
+		<name></name> -->
+		<name></name>
+		<name></name>
+		<id></id>
+		<age></age>
+		
+		<!--<id></id> <s_id></s_id> -->
+	</stu>
+	<!-- <test></test> -->
+</students>

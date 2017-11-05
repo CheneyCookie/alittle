@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	
+	window.onload = function() {
+		
+		//1.为#province添加onchange响应函数
+		document.getElementById("province").onchange=function(){
+			//alert("1")
+			//1.1把#city节点除第一个子节点外都移除
+			var cityNode=document.getElementById("city");
+			var cityNodeOptions=cityNode.getElementsByTagName("option");
+			
+			for(var i=cityNodeOptions.length-1;i>0;i--){
+				cityNode.removeChild(cityNodeOptions[i])
+			}
+			
+			//2.加载cities.xml文件，得到代表该文档的document对象
+			var xmlDoc=parseXml("cities.xml");
+			
+			//3.在cities.xml文档中查找和选择的省匹配的province节点
+			//var provinces=xmlDoc.getElementsByTagName("province");
+			//alert(provinces.length);
+			
+			var provinceVal=this.value;
+			
+			if(provinceVal==""){
+				return;
+			}
+			
+			//alert(provinceVal);
+			
+			//直接使用XPath技术查找xml文档中匹配的节点
+			var provinceEles=xmlDoc.selectNodes("//province[@name='"+provinceVal+"']")
+			
+			//alert(provinceEles.length);
+			
+			//4.再得到province节点的所有的city子节点
+			var cityNodes=provinceEles[0].getElementsByTagName("city");
+			
+			//5.遍历city子节点，得到每一个city子节点的文本值
+			for(var i=0;i<cityNodes.length;i++){
+				//alert(cityNodes[i].firstChild.nodeValue);
+				var cityText=cityNodes[i].firstChild.nodeValue;
+				var cityTextNode=document.createTextNode(cityText);
+				
+				//6.利用得到的文本值创建option节点
+				//<option>cityName</option>
+				var optionNode=document.createElement("option");
+				optionNode.appendChild(cityTextNode);
+				
+				//7.并把6创建的option节点添加为#city的子节点
+				cityNode.appendChild(optionNode);
+			}
+			
+			
+			
+			
+		}
+		
+		function parseXml(fileName){
+			//IE的内核浏览器
+			if(window.ActiveXObject){
+				//创建DOM解析器
+				var doc=new ActiveXObject("Microsoft.XMLDOM");
+				doc.async="false";
+				//加载xml文档，获取xml文档对象
+				doc.load(fileName);
+				return doc;
+			}
+		}
+	}
+</script>
+</head>
+<body>
+	<select id="province">
+		<option value="">--请选择--</option>
+		<option value="江西省">江西省</option>
+		<option value="广东省">广东省</option>
+		<option value="福建省">福建省</option>
+	</select>
+	
+	<select id="city">
+		<option value="...">请选择</option>
+	</select>
+</body>
+</html>

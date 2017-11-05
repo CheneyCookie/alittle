@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	//获取指定的元素节点
+	window.onload=function(){
+		//1.获取id为bj的节点，确保id唯一
+		//该方法为document对象的方法
+		var bjNode=document.getElementById("bj");
+		alert(bjNode);
+		
+		//2.获取所有的li节点
+		//使用标签名获取指定节点的集合
+		//该方法为Node接口的方法，即任何一个节点都有这个方法
+		var liNodes=document.getElementsByTagName("li");
+		alert(liNodes.length);
+		
+		var cityNode=document.getElementById("city");
+		var cityLiNodes=cityNode.getElementsByTagName("li");
+		alert(cityLiNodes.length);
+		
+		//3.根据HTML文档元素的name属性名来获取指定的节点的集合。
+		var genderNode=document.getElementsByName("gender");
+		alert(genderNode.length);
+		
+		//若HTML元素自身没有定义name属性，则getElementsByName()方法对于IE无效，所以使用该方法时需谨慎		
+		var bjNode=document.getElementsByName("BeiJing");
+		alert(bjNode.length);
+	}
+	
+</script>
+</head>
+<body>
+
+	<p>你喜欢哪个城市</p>
+	<ul id="city">
+		<li id="bj" name="BeiJing">北京</li>
+		<li>上海</li>
+		<li>东京</li>
+		<li>首尔</li>
+	</ul>
+	
+	<br><br>
+	<p>你喜欢哪款单机游戏</p>
+	<ul id="game">
+		<li id="rl">红警</li>
+		<li>实况</li>
+		<li>极品飞车</li>
+		<li>魔兽</li>
+	</ul>
+	
+	<br><br>
+	gender:
+		<input type="radio" name="gender" value="male">Male
+		<input type="radio" name="gender" value="female">Female
+</body>
+</html>

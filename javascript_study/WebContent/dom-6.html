@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	//1.节点的类型：元素节点，属性节点，文本节点
+	//通常情况下，操作属性节点直接通过元素节点，属性名的方式来读写属性值
+	//而不是获取属性节点。
+	
+	/*2.写js代码的位置
+		1.具体位置在哪
+		2.window.onload事件被触发的时间，以及如何为该事件赋值一个相应的函数
+	*/
+	
+	/*3.获取元素节点
+		1.根据id获取
+		2.根据标签名获取:该方法并非document对象所独有，任何元素节点都可以调用该方法，以获取指定的子节点
+		3.根据name属性名来获取:若html元素本身没有name属性，我们硬添加了一个name属性，
+		使用getElementsByName(name)对于ie是不好用的
+	*/
+	
+	/*4.获取子节点
+		1.childNodes属性
+		2.firstChild、lastChild属性:获取元素节点的文本节点（如果一个元素节点只有一个文本子节点）
+		3.使用元素节点的getElementsByTagName("")方法
+	*/
+	
+	/*5.读写文本节点:
+		1.文本节点是元素节点的子节点
+		2.获取文本节点所在的元素节点->利用firstChild获取文本节点
+		->利用节点的nodeValue属性来读写文本值
+	*/
+	
+	/*6.节点的属性：所有节点都有的属性（按元素节点，属性节点，文本节点来说明）
+		1.nodeType：	1,2,3只读属性
+		2.nodeName：	返回对应的节点的名字 只读属性
+		3.nodeValue：null,属性值，文本值，可读写属性
+	*/
+	
+	/*7.属性节点：
+		1.一般情况下，不单独获取属性节点，而是通过元素节点.属性名的方式来读写属性值
+	*/
+	
+	window.onload=function(){
+		//var bjNode=document.getElementById("bj");
+		//alert(bjNode);
+		
+		//var liNode=document.getElementsByTagName("li");
+		//alert(liNode.length);
+		
+		//var genderNodes=document.getElementsByName("gender");
+		//alert(genderNodes.length);
+		
+		//var bjNode=document.getElementsByName("BeiJing");
+		//alert(bjNode.length);
+		
+		//var cityNode=document.getElementById("city");
+		//var cityLiNodes=cityNode.getElementsByTagName("li");
+		//alert(cityLiNodes.length);
+		
+		//var liChildren=cityNode.childNodes;
+		//alert(liChildren.length);
+		
+		//var cityFirstChild=cityNode.firstChild;
+		//alert(cityFirstChild);
+		
+		//var bjNode=document.getElementById("bj");
+		//alert(bjNode.firstChild.nodeValue);
+		
+		//bjNode.firstChild.nodeValue="cheney";
+		
+		var nameNode=document.getElementsByName("username")[0];
+		alert(nameNode.value);
+		nameNode.value="chen";
+	}
+	
+</script>
+</head>
+<body>
+
+	<p>你喜欢哪个城市</p>
+	<ul id="city"><li id="bj" name="BeiJing">北京</li>
+		<li>上海</li>
+		<li>东京</li>
+		<li>首尔</li>
+	</ul>
+	
+	<br><br>
+	<p>你喜欢哪款单机游戏</p>
+	<ul id="game">
+		<li id="rl">红警</li>
+		<li>实况</li>
+		<li>极品飞车</li>
+		<li>魔兽</li>
+	</ul>
+	
+	<br><br>
+	gender:
+		<input type="radio" name="gender" value="male">Male
+		<input type="radio" name="gender" value="female">Female
+	
+	<br><br>
+	name:<input type="text" name="username" id="name" value="cheney">
+</body>
+</html>

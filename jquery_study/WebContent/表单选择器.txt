@@ -1,0 +1,14 @@
+选择器		描述							返回
+
+:input		选取所有的<input>,<textarea>,	集合元素
+			<select>,和<button>元素
+:text		选取所有的单行文本框				集合元素
+:password	选取所有的密码框元素				集合元素
+:radio		选取所有的单选框					集合元素
+:checkbox	选取所有的多选框					集合元素
+:submit		选取所有的提交按钮				集合元素
+:image		选取所有的图像按钮				集合元素
+:reset		选取所有的重置按钮				集合元素
+:button		选取所有的按钮					集合元素
+:file		选取所有的上传域					集合元素
+:hidden		选取所有的不可见元素				集合元素

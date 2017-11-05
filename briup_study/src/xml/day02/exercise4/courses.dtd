@@ -1,0 +1,2 @@
+<!ELEMENT courses (course+)>
+<!ELEMENT course (name,time,teacher,class?)>

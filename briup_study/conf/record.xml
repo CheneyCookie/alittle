@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<records>
+  <recode>
+    <name>tom</name>
+    <price>17.0</price>
+  </recode>
+  <recode>
+    <name>tom</name>
+    <price>29.5</price>
+  </recode>
+  <recode>
+    <name>terry</name>
+    <price>66.5</price>
+  </recode>
+  <recode>
+    <name>marry</name>
+    <price>29.5</price>
+  </recode>
+  <recode>
+    <name>ody</name>
+    <price>95.5</price>
+  </recode>
+  <recode>
+    <name>tom</name>
+    <price>46.5</price>
+  </recode>
+  <recode>
+    <name>cheney</name>
+    <price>100.0</price>
+  </recode>
+</records>

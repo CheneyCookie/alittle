@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mybatis.day02.homework.BookMapper">
+	<resultMap type="Book" id="BookResult">
+		<id property="id" column="id"/>
+		<result property="bookName" column="book_name"/>
+		<result property="author" column="author"/>
+		<result property="publishDate" column="publish_date"/>
+		<result property="price" column="price"/>
+	</resultMap>
+	
+	<insert id="addBook" parameterType="Book">
+		insert into book(id,book_name,author,publish_date,price) 
+		values(#{id},#{bookName},#{author},#{publishDate},#{price}) 
+	</insert >
+	
+	<delete id="removeBook" parameterType="int">
+		delete from book
+		where id=#{id}
+	</delete>
+	
+	<select id="findBookByName" parameterType="java.lang.String" resultMap="BookResult">
+		select * from book
+		where book_name=#{name}
+	</select>
+	
+	<select id="findBookById" parameterType="int" resultMap="BookResult">
+		select * from book
+		where id=#{id}
+	</select>
+	
+	<select id="findAllBooks" resultMap="BookResult">
+		select * from book
+	</select>
+	
+	<select id="findAllBooksName" resultType="java.lang.String">
+		select book_name from book
+	</select>
+	
+	<select id="findCountOfBook" resultType="int">
+		select count(book_name) from book
+	</select>
+	
+	<update id="updateBook" parameterType="Book">
+		update book
+		set book_name=#{bookName},author=#{author},
+		publish_date=#{publishDate},price=#{price}
+		where id=#{id}
+	</update>
+	
+	<select id="findBookNameAndAuthor" resultType="Map">
+		select book_name,author
+		from book
+	</select>
+</mapper>

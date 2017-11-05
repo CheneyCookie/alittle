@@ -1,0 +1,15 @@
+选择器		描述							返回
+
+:enabled	选取所有可用元素					集合元素
+:disabled	选取所有不可用元素				集合元素
+:checked	选取所有被选中元素(单选框、复选框)		集合元素
+:selected	选取所有被选中选项元素(下拉列表)		集合元素
+
+使所有的可用的单行文本框的value值变为123
+$(":text:enabled").val("123")
+name为newsletter被选中的checkbox
+$(":checkbox[name='newsletter']:checked")
+下拉列表，实际被选中的不是select，而是select的option子节点 ，所以要加一个空格
+$("select :selected")	返回一个数组
+
+jQuery对象遍历的方法是each,在each内部的this使正在得到的DOM对象，而不是一个jQuery对象

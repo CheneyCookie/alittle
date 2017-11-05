@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	//需求：点击submit按钮时，检查是否选择type，若没有选择给出提示:"请选择类型";
+	//	检查文本框中是否有输入(可以去除前后空格),若没有输入，则给出提示："请输入内容";
+	
+	//需求2：使包括新增的li都能响应onclick事件
+	window.onload = function() {
+		
+		function showContent(liNode){
+			alert("^_^"+liNode.firstChild.nodeValue);
+		}
+		
+		var liNodes=document.getElementsByTagName("li");
+		for(var i=0;i<liNodes.length;i++){
+			liNodes[i].onclick=function(){
+				showContent(this);
+			}
+		}
+
+		//1.获取#submit对应的submitBtn
+		var submit = document.getElementById("submit");
+
+		//2.为submitBtn添加onclick响应函数
+		submit.onclick = function() {
+
+		//3.在onclick响应函数结尾处添加return false,就可以取消提交按钮的默认行为
+		/*4.检查是否选择type，若没有选择给出提示:"请选择类型"
+			1.选择所有的name="type"的节点types
+			
+			2.遍历,检查其是否有一个type的checked属性为checked属性存在，
+			就可以说明有一个type被选中了:通过if(元素节点.属性名)来判断某一个元素节点是否有该属性
+			
+			3.若没有任何一个type被选中，则弹出:"请选择类型".响应方法结束：return false  
+		 */
+		 	var types=document.getElementsByName("type");
+		 	
+			var typeVal=null;
+			for(var i=0;i<types.length;i++){
+				if(types[i].checked){
+					typeVal=types[i].value;
+					break;
+				}
+			}
+			
+			if(typeVal==null){
+				alert("请选择类型");
+				return false;
+			}
+		//5.获取name="name"的文本值:通过value属性。
+			var nameEle=document.getElementsByName("name")[0];
+			var nameVal=nameEle.value;
+		
+		//6.去除nameVal的前后空格
+			var reg=/^\s*|\s*$/g;
+			
+			nameVal=nameVal.replace(reg,"");
+		//使name的文本框也去除前后空格
+			nameEle.value=nameVal;
+		
+		//7.把nameVal和""进行比较，若是""说明只输入了空格，弹出"请输入内容"
+		//方法结束：return false
+			if(nameVal==""){
+				alert("请输入内容")
+				return false;
+			}
+		
+		//8.创建li节点
+			var liNode=document.createElement("li");
+			
+		//9.利用nameVal创建文本节点
+			var content=document.createTextNode(nameVal);
+		
+		//10.把9加为8的子节点
+			liNode.appendChild(content);
+		
+		//为新创建的li添加onclick响应函数
+			liNode.onclick=function(){
+				showContent(this);
+			}
+		
+		//11.把8加为选择的type对应的ul的子节点
+			document.getElementById(typeVal).appendChild(liNode);
+			return false;
+		}
+
+
+	}
+</script>
+</head>
+<body>
+
+	<p>你喜欢哪个城市</p>
+	<ul id="city">
+		<li id="bj">北京</li>
+		<li>上海</li>
+		<li>东京</li>
+		<li>首尔</li>
+	</ul>
+
+	<br>
+	<br>
+	<p>你喜欢哪款单机游戏</p>
+	<ul id="game">
+		<li id="rl">红警</li>
+		<li>实况</li>
+		<li>极品飞车</li>
+		<li>魔兽</li>
+	</ul>
+
+	<form action="dom-7.html" name="myform">
+		<input type="radio" name="type" value="city">城市
+		 <input type="radio" name="type" value="game">游戏
+		 name:<input type="text" name="name"> 
+		 <input type="submit" value="submit" id="submit">
+	</form>
+</body>
+</html>

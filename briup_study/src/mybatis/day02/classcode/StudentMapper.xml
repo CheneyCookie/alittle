@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.day02.classcode.StudentMapper">
+	<resultMap type="Student" id="StudentResult">
+		<id property="id" column="id"/>
+		<result property="name" column="name"/>
+		<result property="age" column="age"/>
+	</resultMap>
+	
+	<insert id="add" parameterType="Student">
+		insert into c_student(id,name,email,dob,phone)
+		values(#{id},#{name},#{email},#{dob},#{phone})
+	</insert>
+	
+	<!-- useGeneratedKeys="true" keyProperty="id"允许自动生成主键 -->
+	<insert id="insertWithId" parameterType="Student">
+		<selectKey keyProperty="id" resultType="int" order="BEFORE">
+			select my_sq.nextval from dual
+		</selectKey>
+		insert into c_student(id,name,email,dob,phone)
+		values(#{id},#{name},#{email},#{dob},#{phone})
+	</insert>
+	
+</mapper>

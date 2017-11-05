@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE courses SYSTEM "courses.dtd">
+
+<courses>
+	<course>
+		<name></name>
+		<time></time>
+		<teacher></teacher>
+		<class></class>
+	</course>
+</courses>

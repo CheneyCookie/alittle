@@ -7,7 +7,7 @@
 	<!-- 
 		class属性:指向静态方法的 全类名
 		factory-method:指向静态工厂方法的名字
-		constructor-arg:如果工厂方法需要传入参数，则使用constructor-arg来配置参数
+		constructor-arg:指向静态工厂方法的名字
 	 -->
 	<bean id="car1" 
 	class="com.spring.bean.factory.StaticCarFactory"
@@ -19,6 +19,10 @@
 	<bean id="carFactory" class="com.spring.bean.factory.InstanceCarFactory"></bean>
 	
 	<!-- 通过实例工厂方法来配置bean -->
+	<!-- factory-bean属性：指向实例工厂方法的bean
+		factory-method：指向静态工厂方法的名字
+		constructor-arg：指向静态工厂方法的名字
+	 -->
 	<bean id="car2" factory-bean="carFactory" factory-method="getCar">
 		<constructor-arg value="ford"></constructor-arg>
 	</bean>

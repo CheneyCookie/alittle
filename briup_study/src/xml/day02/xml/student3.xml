@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE students SYSTEM "../dtd/student3.dtd">
+<!-- <!ELEMENT students (stu+)>  -->
+
+<students>
+	<stu gender="male"/>
+<!-- 	<stu name="tom" id="A1" ></stu>
+	<stu name="jack" id="A2" ></stu>
+	<stu name="rose" id="A3" pid="A1 A2 A3" ></stu> -->
+	<!-- <test></test> -->
+</students>

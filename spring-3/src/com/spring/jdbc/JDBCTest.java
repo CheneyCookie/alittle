@@ -2,7 +2,9 @@ package com.spring.jdbc;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.sql.DataSource;
 
@@ -12,14 +14,48 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 
 public class JDBCTest {
 
 	private ApplicationContext ctx=null;
 	private JdbcTemplate jdbcTemplate;
+	private EmployeeDao employeeDao;
+	private DepartemtDao departemtDao;
+	private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 	{
 		ctx=new ClassPathXmlApplicationContext("applicationContext.xml");
 		jdbcTemplate=(JdbcTemplate) ctx.getBean("jdbcTemplate");
+		employeeDao=ctx.getBean(EmployeeDao.class);
+		departemtDao=ctx.getBean(DepartemtDao.class);
+		namedParameterJdbcTemplate=ctx.getBean(NamedParameterJdbcTemplate.class);
+	}
+	
+	
+	/**
+	 * 可以为参数起名字
+	 * 1.好处：若有多个参数，则不用再去对应顺序，直接对应参数名，便于维护
+	 * 2.缺点：较为麻烦
+	 */
+	@Test
+	public void testNamedParameterJdbcTemplate(){
+		String sql="insert into employees(last_name,email,dept_id) values(:ln,:email,:deptid)";
+		Map<String, Object> paramMap=new HashMap<String, Object>();
+		paramMap.put("ln", "FF");
+		paramMap.put("email", "ff@qq.com");
+		paramMap.put("deptid", "2");
+		namedParameterJdbcTemplate.update(sql, paramMap);
+	}
+	
+	@Test
+	public void testDepartmentDao(){
+		System.out.println(departemtDao.get(1));
+	}
+	
+	@Test
+	public void testEmployeeDao(){
+		System.out.println(employeeDao.get(1));
 	}
 	
 	/*

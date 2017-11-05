@@ -58,7 +58,7 @@ public class LoggingAspect {
 		System.out.println("The method "+methodName+" occurs with "+ex);
 	}
 	
-	//环绕通知：需要携带PProceedingJoinPoint类型的参数
+	//环绕通知：需要携带ProceedingJoinPoint类型的参数
 	//环绕通知类似于动态代理的全过程：ProceedingJoinPoint类型的参数可以决定是否执行目标方法
 	//且环绕通知必须有返回值，返回值即为目标方法的返回值
 	@Around("execution(public int com.spring.aop.impl.ArithmeticCalculator.*(..))")
@@ -70,7 +70,7 @@ public class LoggingAspect {
 			//前置通知
 			System.out.println("The method "+methodName+" begins with "+Arrays.asList(pjd.getArgs()));
 			result=pjd.proceed();
-			//后置通知
+			//返回通知
 			System.out.println("The method "+methodName+" ends with "+result);
 		} catch (Throwable e) {
 			//异常通知

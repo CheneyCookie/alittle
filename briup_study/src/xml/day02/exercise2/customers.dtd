@@ -1,0 +1,6 @@
+<!ELEMENT customers (customer+)>
+<!ELEMENT customer (cost)>
+
+<!ATTLIST customer
+	name (tom|alexlee|jack)	#REQUIRED
+>

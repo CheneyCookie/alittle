@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>表单测试</title>
+</head>
+<body>
+
+	<marquee behavior="alternate" direction="right">
+	<fieldset>
+	<legend>表单名：</legend>
+	<div align="center">
+		<form action="" method="get" accept-charset="utf-8" >
+			用户名：<input type="text" name="username" 
+			size="20" maxlength="10" placeholder="请输入用户名"
+			autofocus="autofocus" required="required"
+			disabled="disabled" value="zhangsan">
+			<br>
+			密&nbsp;&nbsp;&nbsp;码：<input type="password" name="password"
+			placeholder="请输入密码" maxlength="3">
+			<br>
+			年&nbsp;&nbsp;&nbsp;龄：<input type="number" name="age"
+			min="0" max="80" step="2">
+			<br>
+			性&nbsp;&nbsp;&nbsp;别：<input type="radio" name="sex" value="male">男
+			&nbsp;&nbsp;&nbsp;<input type="radio" name="sex" value="famale">女
+			<br>
+			爱&nbsp;&nbsp;&nbsp;好：<input type="checkbox" name="hobby" value="game">王者荣耀
+			<input type="checkbox" name="hobby" value="study">学习
+			<input type="checkbox" name="hobby" value="eat">吃
+			<br>
+			邮&nbsp;&nbsp;&nbsp;箱：<input type="email" name="email">
+			<br>
+			<!-- 隐藏域 -->
+			<input type="hidden" name="money" value="1000">
+			文件：<input type="file" name="file">
+			<br>
+			国家：<select name="country" size="2" multiple="multiple">
+				<option value="cn">中国</option>
+				<option value="uk" selected="selected">英国</option>
+				<option value="usa">美国</option>
+			</select>
+			<br>
+			简介：<textarea rows="4" cols="10" name="me" wrap="soft"></textarea>
+			<br>
+			<input type="submit" value="提交">
+			&nbsp;&nbsp;&nbsp;
+			<input type="reset" value="重置">
+			&nbsp;&nbsp;&nbsp;
+			<input type="button" value="按钮" onclick="javascript">
+		</form>
+	</div>
+	</fieldset>
+	</marquee>
+</body>
+</html>

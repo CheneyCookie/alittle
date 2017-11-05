@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<!-- <typeAlias type="mybatis.day01.homework.work1.pojo.Student" alias="Student"/> -->
+		<!-- <typeAlias type="mybatis.day03.classcode.Student" alias="Student"/>
+		 -->
+		<!-- <package name="mybatis"/> -->
+		<!-- <typeAlias type="mybatis.day03.classcode.one_to_one.Address" alias="address"/>
+		<typeAlias type="mybatis.day03.classcode.one_to_one.Student" alias="student"/> 
+		<typeAlias type="mybatis.day02.homework.Book" alias="Book"/>
+		-->
+		
+		<!-- <typeAlias type="mybatis.day03.homework.work1.Husband" alias="Husband"/>
+		<typeAlias type="mybatis.day03.homework.work1.Wife" alias="Wife"/>
+		<typeAlias type="mybatis.day03.homework.work2.Group" alias="Group"/>
+		<typeAlias type="mybatis.day03.homework.work2.User" alias="User"/>
+		<typeAlias type="mybatis.day03.homework.work3.Student" alias="Student"/>
+		<typeAlias type="mybatis.day03.homework.work3.Teacher" alias="Teacher"/> -->
+		
+		<typeAlias type="mybatis.day03.homework.improve1.Wife" alias="Wife"/>
+		<typeAlias type="mybatis.day03.homework.improve1.Husband" alias="Husband"/>
+		<typeAlias type="mybatis.day03.homework.improve2.Group" alias="Group"/>
+		<typeAlias type="mybatis.day03.homework.improve2.User" alias="User"/>
+		<typeAlias type="mybatis.day04.Course" alias="Course"/>
+		<typeAlias type="mybatis.day04.Tutor" alias="Tutor"/>
+	</typeAliases>
+	
+	<!-- 自定义类型处理器 -->
+	<typeHandlers>
+<!-- 		<typeHandler handler="mybatis.day02.classcode.PhoneTypeHandler"/> -->
+		<typeHandler handler="mybatis.day03.classcode.one_to_one.PhoneTypeHandler"/>
+	</typeHandlers>
+	
+	<!-- 配置数据库环境变量，指定默认运行环境 -->
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC"></transactionManager>
+			<dataSource type="POOLED">
+				<property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
+				<property name="url" value="jdbc:oracle:thin:@127.0.0.1:1521:XE"/>
+				<property name="username" value="cheney"/>
+				<property name="password" value="121716"/>
+			</dataSource>
+		</environment>
+	</environments>
+	
+	<mappers>
+		<!-- <mapper resource="mybatis/day02/classcode/StudentMapper.xml"/> 
+		<mapper resource="mybatis/day01/homework/work1/mappers/StudentMapper.xml"/>
+		<mapper resource="mybatis/day03/classcode/ResultMapper.xml"/>
+		<mapper resource="mybatis/day03/classcode/one_to_one/One2OneMapper.xml"/>
+		<mapper resource="mybatis/day02/homework/BookMapper.xml"/>
+		 -->
+		 
+		 
+		<!-- <mapper resource="mybatis/day03/homework/work1/OnetoOneMapper.xml"/>
+		<mapper resource="mybatis/day03/homework/work2/OnetoManyMapper.xml"/>
+		<mapper resource="mybatis/day03/homework/work3/ManytoManyMapper.xml"/> -->
+		
+		<mapper resource="mybatis/day03/homework/improve1/HusbandMapper.xml"/>
+		<mapper resource="mybatis/day03/homework/improve1/WifeMapper.xml"/>
+		<mapper resource="mybatis/day03/homework/improve2/UserMapper.xml"/>
+		<mapper resource="mybatis/day03/homework/improve2/GroupMapper.xml"/>
+		<mapper resource="mybatis/day04/CourseMapper.xml"/>
+		<mapper resource="mybatis/day04/TutorMapper.xml"/>
+		
+	</mappers>
+</configuration>

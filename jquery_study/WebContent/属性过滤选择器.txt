@@ -1,0 +1,13 @@
+选择器				描述							返回
+
+[attribute]			选取拥有此属性的元素				集合元素
+[attribute=value]	选取指定属性的值为value的元素		集合元素
+[attribute!=value]	选取指定属性的值不等于value的元素		集合元素
+[attribute^=value]	选取指定属性的值以value开始的元素		集合元素
+[attribute$=value]	选取指定属性的值以value结束的元素		集合元素
+[attribute*=value]	选取指定属性的值含有value的元素		集合元素
+
+[selector1][selector2][selector3]...	用属性选择器合并成一个复合属性选择器，满足多个条件，
+										每选择一次，缩小一次范围	集合元素
+
+$("div[title='test']")

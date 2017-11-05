@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 导入jQuery库 -->
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript">
+
+	//演示动画效果
+	$(function(){
+		//1.需选择"富士"以后的所有li：$category
+		var $category=$("li:gt(5):not(:last)");
+		//2.把他们隐藏
+		$category.hide();
+		//3.为.showmore添加一个onclick响应函数
+		$(".showmore").click(function(){
+			//4.若$category是隐藏的
+			if($category.is(":hidden")){
+				$category.show();
+				//高亮显示，未写aa样式，在此无
+				$("li:contains('佳能'),li:contains('尼康')").addClass("aa")
+				$(".showmore > a > span").text("显示精简品牌");			
+				$(".showmore > a > span").css("background","#ffaacc");
+			}else{
+			//4.2  $category显示
+				$category.hide();
+				$("li:contains('佳能'),li:contains('尼康')").removeClass("aa")
+				$(".showmore > a > span").text("显示全部品牌");	
+			}
+			//4.3  .showmore > a > span的文字变为显示精简品牌 
+			
+			return false;
+		})
+		
+		
+	})
+	
+</script>
+</head>
+<body>
+	<div class="SubCategoryBox">
+		<ul>
+			<li><a href="#">佳能</a><i>(123456)</i></li>
+			<li><a href="#">索尼</a><i>(123456)</i></li>
+			<li><a href="#">三星</a><i>(123456)</i></li>
+			<li><a href="#">尼康</a><i>(123456)</i></li>
+			<li><a href="#">松下</a><i>(123456)</i></li>
+			<li><a href="#">卡西欧</a><i>(123456)</i></li>
+			<li><a href="#">富士</a><i>(123456)</i></li>
+			<li><a href="#">柯达</a><i>(123456)</i></li>
+			<li><a href="#">宾得</a><i>(123456)</i></li>
+			<li><a href="#">理光</a><i>(123456)</i></li>
+			<li><a href="#">奥林巴斯</a><i>(123456)</i></li>
+			<li><a href="#">明基</a><i>(123456)</i></li>
+			<li><a href="#">爱国者</a><i>(123456)</i></li>
+			<li><a href="#">其他品牌相机</a><i>(123456)</i></li>
+		</ul>
+		<div class="showmore">
+			<a href="more.html"><span>显示全部品牌</span></a>
+		</div>
+	</div>
+	
+</body>
+</html>

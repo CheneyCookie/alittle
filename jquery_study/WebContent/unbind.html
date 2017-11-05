@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 导入jQuery库 -->
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript">
+
+	//测试移出事件:使用unbind移出事件
+	//one():只为某一个元素添加一次事件，事件被响应后，将不再被触发响应
+	$(function(){
+		$("li:not(#rl)").click(function(){
+			alert(this.firstChild.nodeValue);
+			
+			//对于#bj节点，点击一次后，就没有click响应函数、
+			if(this.id=="bj")
+			$("#bj").unbind("click");
+		})
+		
+		$("#rl").one("click",function(){
+			alert("红警");
+		})
+	})
+</script>
+</head>
+<body>
+
+	<p>你喜欢哪个城市</p>
+	<ul id="city">
+		<li id="bj" name="BeiJing">北京</li>
+		<li>上海</li>
+		<li>东京</li>
+		<li>首尔</li>
+	</ul>
+	
+	<br><br>
+	<p>你喜欢哪款单机游戏</p>
+	<ul id="game">
+		<li id="rl">红警</li>
+		<li>实况</li>
+		<li>极品飞车</li>
+		<li>魔兽</li>
+	</ul>
+	
+	<br><br>
+	<p>你喜欢哪种开发语言</p>
+	<ul id="language">
+		<li>C</li>
+		<li>Java</li>
+		<li>.net</li>
+		<li>PHP</li>
+	</ul>
+	
+	<br><br>
+	gender:
+		<input type="radio" name="gender" value="male">Male
+		<input type="radio" name="gender" value="female">Female
+		
+		<br><br>
+	name:<input type="text" name="username" id="name" value="cheney">
+</body>
+</html>

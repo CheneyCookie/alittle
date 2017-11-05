@@ -1,0 +1,16 @@
+获取和设置class,用attr来完成
+
+追加样式：addClass()
+
+移除样式：removeClass()
+
+切换样式：toggleClass(),控制样式上的重复切换，如果类名存在则删除他，如果类名不存在则添加他
+
+判断是否含有某个样式：hasClass()
+
+获取和设置元素透明度:opacity属性   $("").css("opacity")
+
+获取元素在当前视窗中的相对位移：offset().
+其返回对象有两个属性:top,left.该方法只对可见元素有效
+$("").offset().top
+$("").offset().left
